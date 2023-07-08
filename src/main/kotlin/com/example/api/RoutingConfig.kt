@@ -16,5 +16,6 @@ fun Application.configureRouting() {
         swaggerUI(path = "openapi")
         systemRouter()
         userRouter()
+        productRouter()
     }
 }

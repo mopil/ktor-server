@@ -11,4 +11,5 @@ object ApplicationConfigUtils {
 
     fun isDevEnv() = getConfigProperty("environment") == "dev"
     fun isResetTables() = getConfigProperty("database.reset-on-boot") == "true"
+    fun isSetDummyData() = getConfigProperty("database.set-dummy-data") == "true"
 }

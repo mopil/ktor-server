@@ -10,8 +10,8 @@ class UserService(
     private val userRepository: UserRepository
 ) {
     suspend fun createUser(request: CreateUserRequest): IdResponse {
-        val id = userRepository.save(request).id.value
-        return id.toResponse()
+        val user = userRepository.save(request)
+        return user.id.value.toResponse()
     }
 
     suspend fun getUser(id: Long): GetUserResponse {

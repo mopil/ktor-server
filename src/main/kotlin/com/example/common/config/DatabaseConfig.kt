@@ -5,6 +5,8 @@ import com.example.common.config.DatabaseUtils.dropAndCreateTables
 import com.example.common.util.ApplicationConfigUtils.getDataSource
 import com.example.common.util.ApplicationConfigUtils.isDevEnv
 import com.example.common.util.ApplicationConfigUtils.isResetTables
+import com.example.common.util.ApplicationConfigUtils.isSetDummyData
+import com.example.common.util.DummyDataUtils.setDummyData
 import com.example.model.domain.Orders
 import com.example.model.domain.Products
 import com.example.model.domain.Users
@@ -22,6 +24,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 fun Application.configureDatabase() {
     connectDatabase()
     if (isResetTables()) dropAndCreateTables()
+    if (isSetDummyData()) setDummyData()
 }
 
 object DatabaseUtils {
