@@ -17,5 +17,6 @@ fun Application.configureRouting() {
         systemRouter()
         userRouter()
         productRouter()
+        chatRouter()
     }
 }

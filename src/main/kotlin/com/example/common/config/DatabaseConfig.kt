@@ -7,14 +7,14 @@ import com.example.common.util.ApplicationConfigUtils.isDevEnv
 import com.example.common.util.ApplicationConfigUtils.isResetTables
 import com.example.common.util.ApplicationConfigUtils.isSetDummyData
 import com.example.common.util.DummyDataUtils.setDummyData
+import com.example.model.domain.ChatRooms
+import com.example.model.domain.Chats
 import com.example.model.domain.Orders
 import com.example.model.domain.Products
 import com.example.model.domain.Users
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import io.ktor.server.application.Application
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.StdOutSqlLogger
@@ -28,7 +28,7 @@ fun Application.configureDatabase() {
 }
 
 object DatabaseUtils {
-    private val tables = arrayOf(Users, Orders, Products)
+    private val tables = arrayOf(Users, Orders, Products, Chats, ChatRooms)
     private val log = logger()
     fun connectDatabase() {
         val hikari = HikariDataSource(
@@ -53,12 +53,10 @@ object DatabaseUtils {
         log.info("${tables.size} tables are successfully dropped and created.")
     }
 
-    suspend fun <T> dbQuery(
+    fun <T> dbQuery(
         block: () -> T
-    ): T = withContext(Dispatchers.IO) {
-        transaction {
-            if (isDevEnv()) addLogger(StdOutSqlLogger)
-            block()
-        }
+    ): T = transaction {
+        if (isDevEnv()) addLogger(StdOutSqlLogger)
+        block()
     }
 }

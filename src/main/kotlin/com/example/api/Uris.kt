@@ -19,4 +19,9 @@ object Uris {
         const val UPDATE_PRODUCT = "$PRODUCT/{id}"
         const val DELETE_DELETE = "$PRODUCT/{id}"
     }
+
+    object Chat {
+        private const val CHAT_ROOM = "/chat-rooms"
+        const val CREATE_CHAT_ROOM = CHAT_ROOM
+    }
 }

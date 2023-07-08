@@ -1,9 +1,11 @@
 package com.example.common.config
 
+import com.example.model.domain.ChatRepository
 import com.example.model.domain.ProductRepository
 import com.example.model.domain.ProductRepositoryImpl
 import com.example.model.domain.UserRepository
 import com.example.model.domain.UserRepositoryImpl
+import com.example.service.ChatService
 import com.example.service.ProductService
 import com.example.service.UserService
 import io.ktor.server.application.Application
@@ -17,6 +19,8 @@ val dependencyInjectionModule = module {
     single<UserRepository> { UserRepositoryImpl() }
     single { ProductService(get()) }
     single<ProductRepository> { ProductRepositoryImpl() }
+    single { ChatService(get()) }
+    single { ChatRepository() }
 }
 
 fun Application.configureDependencyInjection() {
