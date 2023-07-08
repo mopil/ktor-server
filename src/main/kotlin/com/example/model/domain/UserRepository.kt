@@ -1,7 +1,7 @@
 package com.example.model.domain
 
 import com.example.api.dto.CreateUserRequest
-import com.example.common.config.DatabaseConfiguration.dbQuery
+import com.example.common.config.DatabaseUtils.dbQuery
 
 interface UserRepository {
     suspend fun save(request: CreateUserRequest): User

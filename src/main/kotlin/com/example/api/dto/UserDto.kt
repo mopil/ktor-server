@@ -11,7 +11,7 @@ data class GetUserResponse(
     val id: Long,
     val name: String,
     val age: Int,
-    val points: Int,
+    val balance: Int,
     val createdAt: String,
     val updatedAt: String
 ) {
@@ -19,7 +19,7 @@ data class GetUserResponse(
         id = entity.id.value,
         name = entity.name,
         age = entity.age,
-        points = entity.points,
+        balance = entity.balance,
         createdAt = entity.createdAt.toString(),
         updatedAt = entity.updatedAt.toString()
     )

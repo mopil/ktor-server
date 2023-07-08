@@ -15,5 +15,5 @@ class User(id: EntityID<Long>) : BaseEntity(id, Users) {
     companion object : BaseEntityClass<User>(Users)
     var name by Users.name
     var age by Users.age
-    var points by Users.balance
+    var balance by Users.balance
 }

@@ -16,7 +16,7 @@ fun Application.configureExceptionHandling() {
     val log = logger()
     install(StatusPages) {
         exception<Throwable> { call, cause ->
-            log.warn("[$cause] Unhandled exception ${cause.localizedMessage}")
+            log.warn("[Global Ex] $cause")
             call.respond(HttpStatusCode.BadRequest, ErrorResponse(message = cause.localizedMessage))
         }
 
