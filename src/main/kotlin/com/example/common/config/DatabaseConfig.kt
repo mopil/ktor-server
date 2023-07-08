@@ -1,7 +1,6 @@
-package com.example.model.configuration
+package com.example.common.config
 
 import com.example.common.util.getConfigProperty
-import com.example.common.util.logger
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import io.ktor.server.application.Application

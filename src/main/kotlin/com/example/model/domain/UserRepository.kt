@@ -1,13 +1,22 @@
 package com.example.model.domain
 
-import com.example.model.configuration.DatabaseConfiguration.dbQuery
-import com.example.model.dto.UserDto
+import com.example.api.dto.CreateUserRequest
+import com.example.common.config.DatabaseConfiguration.dbQuery
 
-class UserRepository {
-    suspend fun save(user: UserDto): Int = dbQuery {
+interface UserRepository {
+    suspend fun save(request: CreateUserRequest): User
+    suspend fun findById(id: Long): User
+}
+
+class UserRepositoryImpl : UserRepository {
+    override suspend fun save(request: CreateUserRequest) = dbQuery {
         User.new {
-            name = user.name
-            age = user.age
-        }.id.value
+            this.name = request.name
+            this.age = request.age
+        }
+    }
+
+    override suspend fun findById(id: Long) = dbQuery {
+        User.findById(id) ?: throw NoSuchElementException()
     }
 }
