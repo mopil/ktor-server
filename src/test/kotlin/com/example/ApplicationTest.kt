@@ -1,11 +1,12 @@
 package com.example
 
 import com.example.api.configureRouting
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.server.testing.*
-import kotlin.test.*
-import io.ktor.http.*
+import io.ktor.client.request.get
+import io.ktor.client.statement.bodyAsText
+import io.ktor.http.HttpStatusCode
+import io.ktor.server.testing.testApplication
+import junit.framework.TestCase.assertEquals
+import org.junit.Test
 
 class ApplicationTest {
     @Test

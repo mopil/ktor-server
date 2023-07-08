@@ -1,18 +1,17 @@
 package com.example.model.domain
 
-
-import org.jetbrains.exposed.dao.IntEntity
-import org.jetbrains.exposed.dao.IntEntityClass
+import com.example.model.BaseEntity
+import com.example.model.BaseEntityClass
+import com.example.model.BaseLongIdTable
 import org.jetbrains.exposed.dao.id.EntityID
-import org.jetbrains.exposed.dao.id.IntIdTable
 
-object UserTable : IntIdTable() {
-    val name = varchar("name", length = 50)
+object Users : BaseLongIdTable("users", "user_id") {
+    val name = varchar("name", 255)
     val age = integer("age")
 }
 
-class User(id: EntityID<Int>) : IntEntity(id) {
-    companion object : IntEntityClass<User>(UserTable)
-    var name by UserTable.name
-    var age by UserTable.age
+class User(id: EntityID<Long>) : BaseEntity(id, Users) {
+    companion object : BaseEntityClass<User>(Users)
+    var name by Users.name
+    var age by Users.age
 }

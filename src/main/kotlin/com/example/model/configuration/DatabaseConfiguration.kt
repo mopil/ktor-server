@@ -13,16 +13,18 @@ import org.jetbrains.exposed.sql.transactions.transaction
 fun Application.configureDatabase() {
     val log = logger()
     fun datasource(key: String) = getConfigProperty("datasource.$key")
-    val hikari = HikariDataSource(HikariConfig().apply {
-        jdbcUrl = datasource("url")
-        username = datasource("username")
-        password = datasource("password")
-        driverClassName = datasource("driver-class-name")
-        maximumPoolSize = datasource("max-pool-size").toInt()
-        isAutoCommit = false
-        transactionIsolation = "TRANSACTION_REPEATABLE_READ"
-        validate()
-    })
+    val hikari = HikariDataSource(
+        HikariConfig().apply {
+            jdbcUrl = datasource("url")
+            username = datasource("username")
+            password = datasource("password")
+            driverClassName = datasource("driver-class-name")
+            maximumPoolSize = datasource("max-pool-size").toInt()
+            isAutoCommit = false
+            transactionIsolation = "TRANSACTION_REPEATABLE_READ"
+            validate()
+        }
+    )
     Database.connect(hikari)
     log.info("Database is successfully connected.")
 }

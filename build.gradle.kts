@@ -4,11 +4,13 @@ val logbackVersion: String by project
 val exposedVersion: String by project
 val mysqlVersion: String by project
 val hikariCpVersion: String by project
+val koinVersion: String by project
 
 plugins {
     kotlin("jvm") version "1.8.22"
     id("io.ktor.plugin") version "2.3.2"
-                id("org.jetbrains.kotlin.plugin.serialization") version "1.8.22"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.22"
+    id("org.jlleitschuh.gradle.ktlint") version "11.5.0"
 }
 
 group = "com.example"
@@ -41,8 +43,12 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
     implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-java-time:$exposedVersion")
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("com.zaxxer:HikariCP:$hikariCpVersion")
+
+    implementation("io.insert-koin:koin-ktor:$koinVersion")
+    implementation("io.insert-koin:koin-logger-slf4j:$koinVersion")
 }
 
 application {
