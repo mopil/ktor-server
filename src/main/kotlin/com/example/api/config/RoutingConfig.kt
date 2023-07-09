@@ -1,5 +1,9 @@
-package com.example.api
+package com.example.api.config
 
+import com.example.api.chatRouter
+import com.example.api.productRouter
+import com.example.api.systemRouter
+import com.example.api.userRouter
 import com.example.common.config.logger
 import io.ktor.server.application.Application
 import io.ktor.server.plugins.swagger.swaggerUI

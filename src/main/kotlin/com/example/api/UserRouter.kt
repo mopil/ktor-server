@@ -1,5 +1,6 @@
 package com.example.api
 
+import com.example.api.config.Uris
 import com.example.api.dto.CreateUserRequest
 import com.example.api.util.RequestUtils.getEntityId
 import com.example.service.UserService

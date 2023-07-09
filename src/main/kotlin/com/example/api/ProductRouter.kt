@@ -1,6 +1,8 @@
 package com.example.api
 
+import com.example.api.config.Uris
 import com.example.api.dto.GetProductRequest
+import com.example.api.util.RequestUtils.getQueryParams
 import com.example.service.ProductService
 import io.ktor.server.application.call
 import io.ktor.server.response.respond
@@ -12,7 +14,7 @@ fun Route.productRouter() {
     val productService: ProductService by inject()
 
     get(Uris.Product.GET_ALL_PRODUCTS) {
-        val params = GetProductRequest(call.parameters)
+        val params = call.getQueryParams<GetProductRequest>()
         call.respond(productService.getAllProducts(params))
     }
 }

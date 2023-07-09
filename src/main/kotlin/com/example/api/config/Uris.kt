@@ -1,4 +1,4 @@
-package com.example.api
+package com.example.api.config
 
 object Uris {
     const val HEALTH = "/health"
