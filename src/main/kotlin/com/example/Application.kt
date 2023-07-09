@@ -27,6 +27,7 @@ fun main() {
 }
 
 fun Application.module() {
+    // test
     configureDatabase()
     configureLogging()
     configureExceptionHandling()
