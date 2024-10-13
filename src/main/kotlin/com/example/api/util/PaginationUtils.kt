@@ -1,4 +1,4 @@
-package com.example.common.util
+package com.example.api.util
 
 object PaginationUtils {
     data class PageResponse<T> (

@@ -1,6 +1,6 @@
-package com.example.model
+package com.example.domain.model
 
-import com.example.common.config.logger
+import com.example.core.configuration.logger
 import java.time.LocalDateTime
 import org.jetbrains.exposed.dao.EntityChangeType
 import org.jetbrains.exposed.dao.EntityHook

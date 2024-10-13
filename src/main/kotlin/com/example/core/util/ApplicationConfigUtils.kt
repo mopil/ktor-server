@@ -1,4 +1,4 @@
-package com.example.common.util
+package com.example.core.util
 
 import com.typesafe.config.ConfigFactory
 import io.ktor.server.config.HoconApplicationConfig

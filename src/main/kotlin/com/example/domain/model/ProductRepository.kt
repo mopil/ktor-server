@@ -1,12 +1,12 @@
-package com.example.model.domain
+package com.example.domain.model
 
 import com.example.api.dto.CreateProductRequest
 import com.example.api.dto.GetProductRequest
 import com.example.api.dto.GetProductResponse
 import com.example.api.dto.ProductPriceCondition
-import com.example.common.config.DatabaseUtils.dbQuery
-import com.example.common.util.PaginationUtils.PageResponse
-import com.example.common.util.PaginationUtils.toPageResponse
+import com.example.core.configuration.DatabaseUtils.dbQuery
+import com.example.api.util.PaginationUtils.PageResponse
+import com.example.api.util.PaginationUtils.toPageResponse
 import org.jetbrains.exposed.sql.andWhere
 import org.jetbrains.exposed.sql.selectAll
 

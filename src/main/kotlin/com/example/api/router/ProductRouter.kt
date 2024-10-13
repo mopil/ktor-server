@@ -3,7 +3,7 @@ package com.example.api.router
 import com.example.api.configuration.Uris
 import com.example.api.dto.GetProductRequest
 import com.example.api.util.RequestUtils.getQueryParams
-import com.example.service.ProductService
+import com.example.domain.service.ProductService
 import io.ktor.server.application.call
 import io.ktor.server.response.respond
 import io.ktor.server.routing.Route

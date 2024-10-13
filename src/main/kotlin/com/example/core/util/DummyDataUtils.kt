@@ -1,7 +1,7 @@
-package com.example.common.util
+package com.example.core.util
 
-import com.example.model.domain.ProductCategory
-import com.example.model.domain.Products
+import com.example.domain.model.ProductCategory
+import com.example.domain.model.Products
 import org.jetbrains.exposed.sql.StdOutSqlLogger
 import org.jetbrains.exposed.sql.addLogger
 import org.jetbrains.exposed.sql.insert

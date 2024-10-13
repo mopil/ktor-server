@@ -1,10 +1,10 @@
-package com.example.service
+package com.example.domain.service
 
 import com.example.api.dto.CreateUserRequest
 import com.example.api.dto.GetUserResponse
 import com.example.api.dto.IdResponse
-import com.example.common.util.toResponse
-import com.example.model.domain.UserRepository
+import com.example.core.util.toResponse
+import com.example.domain.model.UserRepository
 
 class UserService(
     private val userRepository: UserRepository

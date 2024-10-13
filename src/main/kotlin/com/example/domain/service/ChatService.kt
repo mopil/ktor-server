@@ -1,9 +1,9 @@
-package com.example.service
+package com.example.domain.service
 
 import com.example.api.dto.CreateChatRoomRequest
 import com.example.api.dto.IdResponse
-import com.example.common.util.toResponse
-import com.example.model.domain.ChatRepository
+import com.example.core.util.toResponse
+import com.example.domain.model.ChatRepository
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class ChatService(

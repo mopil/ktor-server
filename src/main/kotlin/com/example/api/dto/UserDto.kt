@@ -1,6 +1,6 @@
 package com.example.api.dto
 
-import com.example.model.domain.User
+import com.example.domain.model.User
 
 data class CreateUserRequest(
     val name: String,

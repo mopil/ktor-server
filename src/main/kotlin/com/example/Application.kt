@@ -1,12 +1,12 @@
 package com.example
 
-import com.example.api.configuration.configureRouting
+import com.example.api.configuration.configureRouters
 import com.example.api.configuration.configureSwagger
-import com.example.common.config.configureDatabase
-import com.example.common.config.configureDependencyInjection
-import com.example.common.config.configureLogging
-import com.example.common.config.configureSerialization
-import com.example.common.configureExceptionHandling
+import com.example.core.configuration.configureDatabase
+import com.example.core.configuration.configureDependencyInjection
+import com.example.core.configuration.configureLogging
+import com.example.core.configuration.configureSerialization
+import com.example.api.configuration.configureExceptionHandling
 import io.ktor.server.application.Application
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
@@ -22,6 +22,6 @@ fun Application.module() {
     configureExceptionHandling()
     configureSerialization()
     configureDependencyInjection()
-    configureRouting()
+    configureRouters()
     configureSwagger()
 }

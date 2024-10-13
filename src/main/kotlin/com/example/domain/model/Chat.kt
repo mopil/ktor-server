@@ -1,8 +1,5 @@
-package com.example.model.domain
+package com.example.domain.model
 
-import com.example.model.BaseEntity
-import com.example.model.BaseEntityClass
-import com.example.model.BaseLongIdTable
 import org.jetbrains.exposed.dao.id.EntityID
 
 object ChatRooms : BaseLongIdTable("chat_room", "chat_room_id") {

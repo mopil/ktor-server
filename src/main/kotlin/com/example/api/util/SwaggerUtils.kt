@@ -1,6 +1,6 @@
 package com.example.api.util
 
-import com.example.common.ErrorResponse
+import com.example.api.configuration.ErrorResponse
 import io.github.smiley4.ktorswaggerui.dsl.routes.OpenApiResponse
 
 object SwaggerUtils {

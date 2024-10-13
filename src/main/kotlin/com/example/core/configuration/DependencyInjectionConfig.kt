@@ -1,13 +1,13 @@
-package com.example.common.config
+package com.example.core.configuration
 
-import com.example.model.domain.ChatRepository
-import com.example.model.domain.ProductRepository
-import com.example.model.domain.ProductRepositoryImpl
-import com.example.model.domain.UserRepository
-import com.example.model.domain.UserRepositoryImpl
-import com.example.service.ChatService
-import com.example.service.ProductService
-import com.example.service.UserService
+import com.example.domain.model.ChatRepository
+import com.example.domain.model.ProductRepository
+import com.example.domain.model.ProductRepositoryImpl
+import com.example.domain.model.UserRepository
+import com.example.domain.model.UserRepositoryImpl
+import com.example.domain.service.ChatService
+import com.example.domain.service.ProductService
+import com.example.domain.service.UserService
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import org.koin.dsl.module

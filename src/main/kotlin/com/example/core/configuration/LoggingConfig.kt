@@ -1,4 +1,4 @@
-package com.example.common.config
+package com.example.core.configuration
 
 import io.ktor.server.application.Application
 import io.ktor.server.application.install

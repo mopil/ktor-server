@@ -1,4 +1,4 @@
-package com.example.common.util
+package com.example.core.util
 
 import com.example.api.dto.IdResponse
 

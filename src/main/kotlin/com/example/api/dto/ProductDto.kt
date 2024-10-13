@@ -1,7 +1,7 @@
 package com.example.api.dto
 
-import com.example.model.domain.Product
-import com.example.model.domain.ProductCategory
+import com.example.domain.model.Product
+import com.example.domain.model.ProductCategory
 import kotlinx.serialization.Serializable
 
 data class CreateProductRequest(

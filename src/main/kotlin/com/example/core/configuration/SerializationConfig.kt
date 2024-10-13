@@ -1,4 +1,4 @@
-package com.example.common.config
+package com.example.core.configuration
 
 import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.serialization.jackson.jackson

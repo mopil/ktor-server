@@ -1,7 +1,7 @@
-package com.example.model.domain
+package com.example.domain.model
 
 import com.example.api.dto.CreateChatRoomRequest
-import com.example.common.config.DatabaseUtils.dbQuery
+import com.example.core.configuration.DatabaseUtils.dbQuery
 
 class ChatRepository {
 

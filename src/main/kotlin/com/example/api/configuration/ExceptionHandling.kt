@@ -1,6 +1,6 @@
-package com.example.common
+package com.example.api.configuration
 
-import com.example.common.config.logger
+import com.example.core.configuration.logger
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.Application
 import io.ktor.server.application.install

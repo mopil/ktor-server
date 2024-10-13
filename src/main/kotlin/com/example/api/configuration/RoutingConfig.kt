@@ -4,7 +4,7 @@ import com.example.api.router.chatRouter
 import com.example.api.router.productRouter
 import com.example.api.router.systemRouter
 import com.example.api.router.userRouter
-import com.example.common.config.logger
+import com.example.core.configuration.logger
 import io.github.smiley4.ktorswaggerui.routing.openApiSpec
 import io.github.smiley4.ktorswaggerui.routing.swaggerUI
 import io.ktor.server.application.Application
@@ -17,7 +17,7 @@ fun Route.customRouters() {
     chatRouter()
 }
 
-fun Application.configureRouting() {
+fun Application.configureRouters() {
     val log = logger()
 
     routing {

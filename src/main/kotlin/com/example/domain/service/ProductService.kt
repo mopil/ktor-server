@@ -1,12 +1,12 @@
-package com.example.service
+package com.example.domain.service
 
 import com.example.api.dto.CreateProductRequest
 import com.example.api.dto.GetProductRequest
 import com.example.api.dto.GetProductResponse
 import com.example.api.dto.IdResponse
-import com.example.common.util.PaginationUtils.PageResponse
-import com.example.common.util.toResponse
-import com.example.model.domain.ProductRepository
+import com.example.api.util.PaginationUtils.PageResponse
+import com.example.core.util.toResponse
+import com.example.domain.model.ProductRepository
 
 class ProductService(
     private val productRepository: ProductRepository

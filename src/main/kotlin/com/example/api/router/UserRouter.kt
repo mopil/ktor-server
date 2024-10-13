@@ -6,7 +6,7 @@ import com.example.api.dto.IdResponse
 import com.example.api.util.RequestUtils.getEntityId
 import com.example.api.util.SwaggerUtils.internalServerError
 import com.example.api.util.SwaggerUtils.notFound
-import com.example.service.UserService
+import com.example.domain.service.UserService
 import io.github.smiley4.ktorswaggerui.dsl.routing.get
 import io.github.smiley4.ktorswaggerui.dsl.routing.post
 import io.ktor.http.*
