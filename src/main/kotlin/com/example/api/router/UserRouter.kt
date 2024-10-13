@@ -9,18 +9,20 @@ import com.example.api.util.SwaggerUtils.notFound
 import com.example.domain.service.UserService
 import io.github.smiley4.ktorswaggerui.dsl.routing.get
 import io.github.smiley4.ktorswaggerui.dsl.routing.post
-import io.ktor.http.*
+import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.call
 import io.ktor.server.request.receive
 import io.ktor.server.response.respond
 import io.ktor.server.routing.Route
 import org.koin.ktor.ext.inject
 
+val userTags = listOf("User")
+
 fun Route.userRouter() {
     val userService: UserService by inject()
 
     post("/users", {
-        tags = listOf("user")
+        tags = userTags
         description = "create user"
         request {
             body<CreateUserRequest>()
@@ -37,8 +39,8 @@ fun Route.userRouter() {
         call.respond(response)
     }
 
-    get("/users/{id}",  {
-        tags = listOf("user")
+    get("/users/{id}", {
+        tags = userTags
         description = "get user"
         request {
             pathParameter<Long>("id")

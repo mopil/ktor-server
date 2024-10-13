@@ -13,7 +13,8 @@ data class ErrorResponse(
 ) {
     companion object {
         fun ofNotFound() = ErrorResponse(
-            "NOT_FOUND", "해당 데이터를 찾을 수 없어요"
+            "NOT_FOUND",
+            "해당 데이터를 찾을 수 없어요"
         )
 
         fun ofUnexpectedError() = ErrorResponse(
