@@ -1,6 +1,6 @@
-package com.example.api
+package com.example.api.router
 
-import com.example.api.config.Uris
+import com.example.api.configuration.Uris
 import com.example.api.dto.CreateChatRoomRequest
 import com.example.service.ChatService
 import io.ktor.server.application.call

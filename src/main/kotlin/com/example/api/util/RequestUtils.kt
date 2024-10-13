@@ -4,7 +4,6 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.ktor.http.Parameters
 import io.ktor.server.application.ApplicationCall
 
-
 object RequestUtils {
     val mapper = jacksonObjectMapper()
 
@@ -20,4 +19,3 @@ object RequestUtils {
         return this.request.queryParameters.toClass()
     }
 }
-

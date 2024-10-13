@@ -13,6 +13,12 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version "11.5.0"
 }
 
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
 group = "com.example"
 version = "0.0.1"
 application {
@@ -34,6 +40,8 @@ dependencies {
     implementation("io.ktor:ktor-serialization-jackson-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-call-logging-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-swagger-jvm:$ktorVersion")
+    implementation("io.github.smiley4:ktor-swagger-ui:3.5.0")
+
     implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-websockets-jvm:2.3.2")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktorVersion")

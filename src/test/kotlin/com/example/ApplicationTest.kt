@@ -1,6 +1,6 @@
 package com.example
 
-import com.example.api.config.configureRouting
+import com.example.api.configuration.configureRouting
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
 import io.ktor.http.HttpStatusCode

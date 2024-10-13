@@ -1,6 +1,6 @@
-package com.example.api
+package com.example.api.router
 
-import com.example.api.config.Uris
+import com.example.api.configuration.Uris
 import com.example.api.dto.GetProductRequest
 import com.example.api.util.RequestUtils.getQueryParams
 import com.example.service.ProductService

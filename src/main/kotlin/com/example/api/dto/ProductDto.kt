@@ -2,6 +2,7 @@ package com.example.api.dto
 
 import com.example.model.domain.Product
 import com.example.model.domain.ProductCategory
+import kotlinx.serialization.Serializable
 
 data class CreateProductRequest(
     val name: String,
@@ -22,6 +23,7 @@ data class GetProductRequest(
     val limit: Int
 )
 
+@Serializable
 data class GetProductResponse(
     val id: Long,
     val name: String,

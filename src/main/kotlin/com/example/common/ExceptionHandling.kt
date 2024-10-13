@@ -9,8 +9,18 @@ import io.ktor.server.response.respond
 
 data class ErrorResponse(
     val errorCode: String = "UNKNOWN_ERROR",
-    val message: String? = null,
-)
+    val message: String? = null
+) {
+    companion object {
+        fun ofNotFound() = ErrorResponse(
+            "NOT_FOUND", "해당 데이터를 찾을 수 없어요"
+        )
+
+        fun ofUnexpectedError() = ErrorResponse(
+            message = "예상치 못한 서버 에러가 발생했습니다"
+        )
+    }
+}
 
 fun Application.configureExceptionHandling() {
     val log = logger()
@@ -20,8 +30,11 @@ fun Application.configureExceptionHandling() {
             call.respond(HttpStatusCode.BadRequest, ErrorResponse(message = cause.localizedMessage))
         }
 
-        exception<NoSuchElementException> { call, cause ->
-            call.respond(HttpStatusCode.NotFound, cause.localizedMessage)
+        exception<NoSuchElementException> { call, _ ->
+            call.respond(
+                HttpStatusCode.NotFound,
+                ErrorResponse.ofNotFound()
+            )
         }
     }
 }

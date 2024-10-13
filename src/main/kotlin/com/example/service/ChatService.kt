@@ -10,8 +10,9 @@ class ChatService(
     private val chatRepository: ChatRepository
 ) {
     fun createChatRoom(request: CreateChatRoomRequest): IdResponse = transaction {
-        if (chatRepository.duplicateCheckByName(request.name))
+        if (chatRepository.duplicateCheckByName(request.name)) {
             throw IllegalArgumentException("duplicate name")
+        }
         val chatRoom = chatRepository.save(request)
         return@transaction chatRoom.id.value.toResponse()
     }
