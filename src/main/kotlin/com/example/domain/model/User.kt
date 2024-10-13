@@ -1,16 +1,46 @@
 package com.example.domain.model
 
-import org.jetbrains.exposed.dao.id.EntityID
+import com.example.infrastructure.implementation.UserExposedEntity
+import java.time.LocalDateTime
 
-object Users : BaseLongIdTable("users", "user_id") {
-    val name = varchar("user_name", 255)
-    val age = integer("age")
-    val balance = integer("balance").default(0)
-}
+class User private constructor(
+    val id: Long,
+    val email: String,
+    val encPassword: String,
+    val createdAt: LocalDateTime,
+    val updatedAt: LocalDateTime,
+    nickname: String
+) {
+    var nickname: String = nickname
+        private set
 
-class User(id: EntityID<Long>) : BaseEntity(id, Users) {
-    companion object : BaseEntityClass<User>(Users)
-    var name by Users.name
-    var age by Users.age
-    var balance by Users.balance
+    fun updateUserInfo(
+        nickname: String
+    ) {
+        this.nickname = nickname
+    }
+
+    companion object {
+        fun create(
+            nickname: String,
+            email: String,
+            encPassword: String
+        ) = User(
+            id = 0L,
+            nickname = nickname,
+            email = email,
+            encPassword = encPassword,
+            createdAt = LocalDateTime.now(),
+            updatedAt = LocalDateTime.now()
+        )
+
+        fun from(userExposedEntity: UserExposedEntity) = User(
+            id = userExposedEntity.id.value,
+            nickname = userExposedEntity.nickname,
+            email = userExposedEntity.email,
+            encPassword = userExposedEntity.encPassword,
+            createdAt = userExposedEntity.createdAt,
+            updatedAt = userExposedEntity.updatedAt
+        )
+    }
 }

@@ -7,11 +7,9 @@ import com.example.core.util.ApplicationConfigUtils.isDevEnv
 import com.example.core.util.ApplicationConfigUtils.isResetTables
 import com.example.core.util.ApplicationConfigUtils.isSetDummyData
 import com.example.core.util.DummyDataUtils.setDummyData
-import com.example.domain.model.ChatRooms
-import com.example.domain.model.Chats
 import com.example.domain.model.Orders
 import com.example.domain.model.Products
-import com.example.domain.model.Users
+import com.example.infrastructure.implementation.Users
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import io.ktor.server.application.Application
@@ -28,7 +26,7 @@ fun Application.configureDatabase() {
 }
 
 object DatabaseUtils {
-    private val tables = arrayOf(Users, Orders, Products, Chats, ChatRooms)
+    private val tables = arrayOf(Users, Orders, Products)
     private val log = logger()
     fun connectDatabase() {
         val hikari = HikariDataSource(

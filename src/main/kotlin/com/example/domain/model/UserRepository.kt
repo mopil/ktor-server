@@ -1,22 +1,8 @@
 package com.example.domain.model
 
-import com.example.api.dto.CreateUserRequest
-import com.example.core.configuration.DatabaseUtils.dbQuery
-
 interface UserRepository {
-    suspend fun save(request: CreateUserRequest): User
-    suspend fun findById(id: Long): User
-}
-
-class UserRepositoryImpl : UserRepository {
-    override suspend fun save(request: CreateUserRequest) = dbQuery {
-        User.new {
-            this.name = request.name
-            this.age = request.age
-        }
-    }
-
-    override suspend fun findById(id: Long) = dbQuery {
-        User.findById(id) ?: throw NoSuchElementException()
-    }
+    fun findByEmailOrNull(email: String): User?
+    fun findByNicknameOrNull(nickname: String): User?
+    fun save(user: User): User
+    fun findById(id: Long): User
 }

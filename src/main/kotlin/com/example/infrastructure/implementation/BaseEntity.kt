@@ -1,4 +1,4 @@
-package com.example.domain.model
+package com.example.infrastructure.implementation
 
 import com.example.core.configuration.logger
 import java.time.LocalDateTime
@@ -25,11 +25,11 @@ abstract class BaseEntityClass<E : BaseEntity>(table: BaseLongIdTable) : LongEnt
     private val log = logger()
     init {
         EntityHook.subscribe { action ->
-            if (action.changeType == EntityChangeType.Updated) {
+            if (action.changeType == EntityChangeType.Updated || action.changeType == EntityChangeType.Created) {
                 try {
                     action.toEntity(this)?.updatedAt = LocalDateTime.now()
                 } catch (e: Exception) {
-                    log.warn("Failed to update entity $this updatedAt", e.message)
+                    log.warn("Failed to update entity $this updatedAt ${e.message}")
                 }
             }
         }

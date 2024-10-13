@@ -1,5 +1,10 @@
 package com.example.domain.model
 
+import com.example.infrastructure.implementation.BaseEntity
+import com.example.infrastructure.implementation.BaseEntityClass
+import com.example.infrastructure.implementation.BaseLongIdTable
+import com.example.infrastructure.implementation.UserExposedEntity
+import com.example.infrastructure.implementation.Users
 import org.jetbrains.exposed.dao.id.EntityID
 
 enum class OrderStatus(val description: String) {
@@ -24,5 +29,5 @@ class Order(id: EntityID<Long>) : BaseEntity(id, Orders) {
     companion object : BaseEntityClass<Order>(Orders)
     var status by Orders.status
     var product by Product referencedOn Orders.product
-    var user by User referencedOn Orders.user
+    var userExposedEntity by UserExposedEntity referencedOn Orders.user
 }

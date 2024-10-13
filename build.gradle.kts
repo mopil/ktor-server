@@ -61,6 +61,10 @@ dependencies {
     implementation("io.insert-koin:koin-logger-slf4j:$koinVersion")
 
     implementation("io.ktor:ktor-server-websockets:$ktorVersion")
+
+    // jwt
+    implementation("io.ktor:ktor-server-auth:$ktorVersion")
+    implementation("io.ktor:ktor-server-auth-jwt:$ktorVersion")
 }
 
 application {

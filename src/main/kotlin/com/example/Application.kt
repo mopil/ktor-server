@@ -1,5 +1,6 @@
 package com.example
 
+import com.example.api.configuration.configureAuthentication
 import com.example.api.configuration.configureRouters
 import com.example.api.configuration.configureSwagger
 import com.example.core.configuration.configureDatabase
@@ -24,4 +25,5 @@ fun Application.module() {
     configureDependencyInjection()
     configureRouters()
     configureSwagger()
+    configureAuthentication()
 }

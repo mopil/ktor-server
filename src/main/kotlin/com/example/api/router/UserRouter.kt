@@ -1,14 +1,16 @@
 package com.example.api.router
 
-import com.example.api.dto.CreateUserRequest
+import com.example.api.dto.SignUpUserRequest
 import com.example.api.dto.GetUserResponse
-import com.example.api.dto.IdResponse
+import com.example.api.dto.LoginUserResponse
+import com.example.api.dto.UpdateUserInfoRequest
 import com.example.api.util.RequestUtils.getEntityId
 import com.example.api.util.SwaggerUtils.internalServerError
 import com.example.api.util.SwaggerUtils.notFound
 import com.example.domain.service.UserService
 import io.github.smiley4.ktorswaggerui.dsl.routing.get
 import io.github.smiley4.ktorswaggerui.dsl.routing.post
+import io.github.smiley4.ktorswaggerui.dsl.routing.put
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.call
 import io.ktor.server.request.receive
@@ -25,17 +27,17 @@ fun Route.userRouter() {
         tags = userTags
         description = "create user"
         request {
-            body<CreateUserRequest>()
+            body<SignUpUserRequest>()
         }
         response {
             HttpStatusCode.OK to {
-                body<IdResponse>()
+                body<LoginUserResponse>()
             }
             HttpStatusCode.InternalServerError to internalServerError()
         }
     }) {
-        val requestBody = call.receive<CreateUserRequest>()
-        val response = userService.createUser(requestBody)
+        val requestBody = call.receive<SignUpUserRequest>()
+        val response = userService.signUp(requestBody)
         call.respond(response)
     }
 
@@ -55,5 +57,25 @@ fun Route.userRouter() {
     }) {
         val userId = call.getEntityId()
         call.respond(userService.getUser(userId))
+    }
+
+    put("/users/{id}", {
+        tags = userTags
+        description = "update user"
+        request {
+            pathParameter<Long>("id")
+            body<UpdateUserInfoRequest>()
+        }
+        response {
+            HttpStatusCode.OK to {
+                body<GetUserResponse>()
+            }
+            HttpStatusCode.NotFound to notFound()
+            HttpStatusCode.InternalServerError to internalServerError()
+        }
+    }) {
+        val userId = call.getEntityId()
+        val request = call.receive<UpdateUserInfoRequest>()
+        call.respond(userService.updateUser(userId, request.nickname))
     }
 }

@@ -2,6 +2,7 @@ package com.example.core.util
 
 import com.example.domain.model.ProductCategory
 import com.example.domain.model.Products
+import com.example.infrastructure.implementation.Users
 import org.jetbrains.exposed.sql.StdOutSqlLogger
 import org.jetbrains.exposed.sql.addLogger
 import org.jetbrains.exposed.sql.insert
@@ -26,6 +27,11 @@ object DummyDataUtils {
                 it[description] = "더미 제품 $times"
                 it[price] = random.nextInt(5000, 50000)
             }
+        }
+        Users.insert {
+            it[email] = "mopil1102@gmail.com"
+            it[encPassword] = ""
+            it[nickname] = "우아오"
         }
     }
 }

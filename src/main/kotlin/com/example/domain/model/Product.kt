@@ -1,5 +1,8 @@
 package com.example.domain.model
 
+import com.example.infrastructure.implementation.BaseEntity
+import com.example.infrastructure.implementation.BaseEntityClass
+import com.example.infrastructure.implementation.BaseLongIdTable
 import org.jetbrains.exposed.dao.id.EntityID
 
 enum class ProductCategory {
